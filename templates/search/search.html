@@ -1,0 +1,26 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<h3 align='center'>Results for "{{ request.GET.q }}"</h3>
+<div class="container">
+  <div class="row">
+    {% for element in articles %}
+
+    <div class="col-4" >
+      <div class="card" style="width: 20rem;">
+        <img class="card-img-top" src={{element.urlToImage}} alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{element.title}}</h5>
+          <p class="card-text">{{element.description}}</p>
+          <a href={{element.url}} class="btn btn-primary">Know more...</a>
+        </div>
+      </div>
+
+    </div>
+
+
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
